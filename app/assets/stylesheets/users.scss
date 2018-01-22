@@ -75,6 +75,25 @@ a:hover {
   text-transform: uppercase;
 }
 
+.btn_create {
+  background-color: #333;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 30px;
+  padding: 12px 18px;
+}
+
+.btn_create:hover {
+  background-color: #333;
+  color: #72f9b4;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 30px;
+}
+
 .footer {
   background-color: #333;
   color: #fff;

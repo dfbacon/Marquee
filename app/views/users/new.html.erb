@@ -14,14 +14,17 @@
       <h1>MARQUEE</h1>
       <%= form_for(@user) do |f| %>
       <div class="field">
-        <%= f.text_area :username, placeholder: "USERNAME" %>
+        <%= f.label :username %>:<br>
+        <%= f.text_field :username, placeholder: "USERNAME" %>
         <br>
-        <%= f.text_area :email, placeholder: "EMAIL" %>
+        <%= f.label :email %>:<br>
+        <%= f.email_field :email, placeholder: "EMAIL" %>
         <br>
-        <%= f.text_area :password, placeholder: "PASSWORD" %>
+        <%= f.label :password %>:<br>
+        <%= f.password_field :password, placeholder: "PASSWORD" %>
       </div>
       <div class="action">
-        <%= f.submit "Create" %>
+        <%= f.submit "Create", class: "btn_create" %>
       </div>
       <% end %>
     </div>
