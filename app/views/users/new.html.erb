@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="container">
+    <nav>
+      <ul>
+  			<li><a href="/"> Home </a></li> <li> Search </li> <li> Reviews </li> <li> About </li><li class="signup"> Sign Up / Login </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="main">
+      <h1>MARQUEE</h1>
+      <%= form_for(@user) do |f| %>
+      <div class="field">
+        <%= f.text_area :username, placeholder: "USERNAME" %>
+        <br>
+        <%= f.text_area :email, placeholder: "EMAIL" %>
+        <br>
+        <%= f.text_area :password, placeholder: "PASSWORD" %>
+      </div>
+      <div class="action">
+        <%= f.submit "Create" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p>&copy; Daniel Bacon 2018</p>
+  </div>
+</div>

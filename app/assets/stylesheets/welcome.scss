@@ -31,6 +31,34 @@ nav li {
   width: 80px;
 }
 
+.signup {
+  width: 100px;
+}
+
+a:link {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+a:hover {
+  color: #72f9b4;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
+
 .main {
   position: relative;
   top: 80px;
