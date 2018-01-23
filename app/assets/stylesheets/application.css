@@ -13,3 +13,106 @@
  *= require_tree .
  *= require_self
  */
+ html, body {
+   margin: 0;
+   padding: 0;
+ }
+
+ .container {
+   margin: 0 auto;
+ }
+
+ .jumbotron {
+   min-height: 1000px;
+   height: calc(100vh - 145px);
+   overflow: scroll;
+ }
+
+ .header {
+   background-color: #333;
+ }
+
+ .nav {
+   margin: 0;
+   padding: 20px 20px;
+ }
+
+ .nav li {
+   color: #fff;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 600;
+   font-size: 12px;
+   display: inline-block;
+   width: 80px;
+ }
+
+ .navbar-link {
+   padding-right: 40px;
+ }
+
+ .signup {
+   width: 100px;
+ }
+
+ a:link {
+   text-decoration: none;
+   color: #fff;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 600;
+   font-size: 12px;
+ }
+
+ a:visited {
+   text-decoration: none;
+   color: #fff;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 600;
+   font-size: 12px;
+ }
+
+ a:hover {
+   color: #72f9b4;
+   text-decoration: none;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 600;
+   font-size: 12px;
+ }
+
+ .logged_in {
+   display: inline;
+   color: #fff;
+   font-family: 'Raleway', sans-serif;
+   font-style: italic;
+   font-weight: 600;
+   font-size: 12px;
+   padding-right: 20px;
+ }
+
+ .main {
+   position: relative;
+   top: 80px;
+   text-align: center;
+ }
+
+ .main h1 {
+   color: #333;
+   font-family: 'Raleway', sans-serif;
+   font-weight: 600;
+   font-size: 70px;
+   margin-top: 0;
+   margin-bottom: 80px;
+   text-transform: uppercase;
+ }
+
+ .footer {
+   background-color: #333;
+   color: #fff;
+   padding: 30px 0;
+ }
+
+ .footer p {
+   font-family: 'Raleway', sans-serif;
+   text-transform: uppercase;
+   font-size: 11px;
+   text-align: center;
+ }
