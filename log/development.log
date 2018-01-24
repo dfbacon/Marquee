@@ -3525,3 +3525,501 @@ Processing by MovieController#index as HTML
 Completed 200 OK in 313ms (Views: 288.3ms | ActiveRecord: 10.9ms)
 
 
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (186.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Marquee_development"[0m
+  [1m[35m (188.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Marquee_test"[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5613834592972082400)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20180122165009)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "image" character varying, "release_date" character varying, "genre" character varying, "review" text, "plot" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180122165009"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReviews (20180122165017)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "username" character varying, "review" text, "comment" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "movie_id" bigint)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_movie_id" ON "reviews"  ("movie_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180122165017"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20180122170208)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "username" character varying, "comment" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "review_id" bigint)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_review_id" ON "comments"  ("review_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180122170208"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20180123173644)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180123173644"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-24 20:23:43.952827"], ["updated_at", "2018-01-24 20:23:43.952827"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5613834592972082400)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:24:37 -0800
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (1.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 294ms (Views: 275.5ms | ActiveRecord: 4.4ms)
+
+
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Rear Window"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"], ["release_date", "1960"], ["genre", "Thriller"], ["plot", "A wheelchair-bound photographer spies on his neighbours from his apartment window and becomes convinced one of them has committed murder."], ["created_at", "2018-01-24 20:35:15.627607"], ["updated_at", "2018-01-24 20:35:15.627607"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Trouble with Harry"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNjlkYmE2YzYtYzIzMC00ODFhLTljNjYtZjA4YWY2ZGM5NTYwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1955"], ["genre", "Comedy"], ["plot", "The trouble with Harry is that he's dead, and everyone seems to have a different idea of what needs to be done with his body..."], ["created_at", "2018-01-24 20:35:15.632222"], ["updated_at", "2018-01-24 20:35:15.632222"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Rope"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMmFiM2VmNjQtOTYwZi00YjUxLWJjYWItNTE3NGRlNTBkMmIxXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1948"], ["genre", "Drama"], ["plot", "Two young men strangle their \"inferior\" classmate, hide his body in their apartment, and invite his friends and family to a dinner party as a means to challenge the \"perfection\" of their crime."], ["created_at", "2018-01-24 20:35:15.634573"], ["updated_at", "2018-01-24 20:35:15.634573"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "North by Northwest"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BZDA3NDExMTUtMDlhOC00MmQ5LWExZGUtYmI1NGVlZWI4OWNiXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1959"], ["genre", "Drama"], ["plot", "A hapless New York advertising executive is mistaken for a government agent by a group of foreign spies, and is pursued across the country while he looks for a way to survive."], ["created_at", "2018-01-24 20:35:15.636415"], ["updated_at", "2018-01-24 20:35:15.636415"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Shadow of a Doubt"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BYzUyOGE2Y2EtYzI2My00MDcxLWFmNzYtYjMzN2NiMmMzMzAzL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1943"], ["genre", "Thriller"], ["plot", "A young woman discovers her visiting uncle may not be the man he seems to be."], ["created_at", "2018-01-24 20:35:15.638904"], ["updated_at", "2018-01-24 20:35:15.638904"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Birds"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMTAxNDA1ODc5MDleQTJeQWpwZ15BbWU4MDg2MDA4OTEx._V1_SX300.jpg"], ["release_date", "1963"], ["genre", "Drama"], ["plot", "A wealthy San Francisco socialite pursues a potential boyfriend to a small Northern California town that slowly takes a turn for the bizarre when birds of all kinds suddenly begin to attack people."], ["created_at", "2018-01-24 20:35:15.640882"], ["updated_at", "2018-01-24 20:35:15.640882"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Man Who Knew Too Much"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNjQ2OWFhMjItYmFmNC00OGQzLWE1ZTMtZGQwZDM3YWUzMDgxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SX300.jpg"], ["release_date", "1956"], ["genre", "Drama"], ["plot", "A family vacationing in Morocco accidentally stumble on to an assassination plot and the conspirators are determined to prevent them from interfering."], ["created_at", "2018-01-24 20:35:15.642578"], ["updated_at", "2018-01-24 20:35:15.642578"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Saboteur"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMWNlZDIyZWItMDJkZS00OGZhLTg0YzYtOWVhM2ExZTY3NDk3L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1942"], ["genre", "Thriller"], ["plot", "Aircraft factory worker Barry Kane goes on the run across the United States when he is wrongly accused of starting a fire that killed his best friend."], ["created_at", "2018-01-24 20:35:15.644240"], ["updated_at", "2018-01-24 20:35:15.644240"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Jamaica Inn"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNTE3MDkwMjYzNl5BMl5BanBnXkFtZTgwMDU2NjA4MzE@._V1_SX300.jpg"], ["release_date", "1939"], ["genre", "Drama"], ["plot", "In Cornwall in 1819, a young woman discovers that she's living near a gang of criminals who arrange shipwrecks for profit."], ["created_at", "2018-01-24 20:35:15.645802"], ["updated_at", "2018-01-24 20:35:15.645802"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Psycho"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BOWQ0MjRmZmUtY2Q2Yi00ODcxLWE4NGMtMTNjMDY1YmUzMjVkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1960"], ["genre", "Thriller"], ["plot", "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother."], ["created_at", "2018-01-24 20:35:15.647360"], ["updated_at", "2018-01-24 20:35:15.647360"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:35:37 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  Rendered movie/index.html.erb within layouts/application (1.6ms)
+Completed 401 Unauthorized in 24ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/views/movie/index.html.erb:28: syntax error, unexpected tLABEL, expecting '='
+...fer.append=( movie.plot, class: 'plot' );@output_buffer.safe...
+...                         ^~~~~~):
+  
+app/views/movie/index.html.erb:28: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:36:46 -0800
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (2.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (136.3ms)
+Completed 401 Unauthorized in 158ms (ActiveRecord: 5.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_tag' for #<#<Class:0x00007f802eb36d60>:0x00007f802eb76ed8>
+Did you mean?  text_field_tag):
+    25:         <div class="user_rating">
+    26:           Rating
+    27:         </div>
+    28:         <%= text_tag movie.plot, class: 'plot' %>
+    29:         <br style="clear:both;">
+    30:       </div>
+    31:     </div>
+  
+app/views/movie/index.html.erb:28:in `block in _app_views_movie_index_html_erb__2528465121934977352_70094258053980'
+app/views/movie/index.html.erb:3:in `_app_views_movie_index_html_erb__2528465121934977352_70094258053980'
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:36:59 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 236ms (Views: 233.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:38:40 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  Rendered movie/index.html.erb within layouts/application (1.0ms)
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/views/movie/index.html.erb:28: syntax error, unexpected tLABEL, expecting '='
+...fer.append=( movie.plot, class: 'plot' );@output_buffer.safe...
+...                         ^~~~~~):
+  
+app/views/movie/index.html.erb:28: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:40:55 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (2.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 191ms (Views: 182.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:45:59 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  Rendered movie/index.html.erb within layouts/application (0.6ms)
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/views/movie/index.html.erb:16: syntax error, unexpected tLABEL, expecting '='
+...er.append=( movie.title, class: 'title' );@output_buffer.saf...
+...                         ^~~~~~):
+  
+app/views/movie/index.html.erb:16: syntax error, unexpected tLABEL, expecting '='
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:46:14 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.3ms)
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    13:       </div>
+    14:     </div>
+    15:     <div class="right">
+    16:       <h2><%= movie.title class: 'title' %><h2>
+    17:       <h3>Release Date: <%= movie.release_date %></h3>
+    18:       <h3>Genre: <%= movie.genre %></h3>
+    19:       <h3><%= text_field_tag 'plot', movie.plot %></h3>
+  
+app/views/movie/index.html.erb:16:in `block in _app_views_movie_index_html_erb__2528465121934977352_70094251293420'
+app/views/movie/index.html.erb:3:in `_app_views_movie_index_html_erb__2528465121934977352_70094251293420'
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:46:32 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 82ms (Views: 79.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:51:44 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (54.3ms)
+Completed 200 OK in 95ms (Views: 91.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:57:07 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:57:16 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:57:27 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:57:55 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:58:13 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 41ms (Views: 38.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:58:22 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:58:31 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:59:07 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 42ms (Views: 39.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:59:40 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 12:59:59 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:00:38 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:01:16 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:02:28 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 46ms (Views: 39.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:03:41 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:04:15 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 41ms (Views: 39.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:04:17 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:04:24 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:04:26 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:04:58 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  Rendered movie/index.html.erb within layouts/application (0.7ms)
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/views/movie/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...nd=( simple_format(movie.plot), class: 'plot' );@output_buff...
+...                              ^):
+  
+app/views/movie/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:05:19 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:05:35 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 26ms (Views: 22.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:06:32 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:06:49 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:07:00 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 48ms (Views: 46.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:09:32 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:11:11 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:11:12 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:11:28 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:11:31 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:11:49 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:12:06 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:13:34 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 46ms (Views: 43.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:13:52 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:14:19 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:14:38 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:15:21 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 13:18:09 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 303ms (Views: 285.7ms | ActiveRecord: 4.0ms)
+
+
