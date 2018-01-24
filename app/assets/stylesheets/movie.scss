@@ -1,3 +1,77 @@
-// Place all the styles related to the Movie controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.movies {
+  width: 65%;
+  min-height: 750px;
+  height: 80%; /* needs fine tuning after several movie additions */
+  margin-left: 20px;
+  float: left;
+  overflow: scroll;
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.left {
+  position: absolute;
+}
+
+.movie {
+  clear: both;
+}
+
+.movie img {
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 450px;
+}
+
+.img_rating {
+  height: 30px;
+  width: 300px;
+  text-align: center;
+}
+
+.right {
+  height: 485px;
+  margin-left: 310px;
+  text-align: left;
+}
+
+.title {
+  font-size: 30px;
+  font-style: italic;
+}
+.reviews {
+  width: 30%;
+  min-height: 750px;
+  height: 80%; /* change to match .movies height property */
+  float: right;
+  margin-right: 20px;
+  position: relative;
+  overflow: scroll;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.movie_reviews {
+  position: relative;
+  height: 25%;
+  width: 98%;
+}
+
+.user_rating {
+  position: absolute;
+  width: 20%;
+  text-align: center;
+}
+
+.review {
+  width: 75%;
+  float: right;
+  overflow: hidden;
+  clear: left;
+}
