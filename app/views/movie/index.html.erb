@@ -2,10 +2,6 @@
   <div class="movie">
     <% @movies.each do |movie| %>
     <div class="left">
-      <!-- <div class="movie_img"> -->
-      <!-- test image -->
-      <!-- <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOWQ0MjRmZmUtY2Q2Yi00ODcxLWE4NGMtMTNjMDY1YmUzMjVkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg", alt="placeholder"> -->
-      <!-- </div> -->
       <%= image_tag movie.image, class: 'movie_img' %>
       <div class="img_rating">
         <!-- movie rating; should be the user's rating -->
@@ -13,23 +9,12 @@
       </div>
     </div>
     <div class="right">
-      <!-- <div class="movie_info">
-        <h2 class="title">Psycho</h2>
-        <h3 class="release_date">Release Date: 1960</h3>
-        <h3 class="genre">Genre: Thriller</h3>
-      </div> -->
+      <div class='floater'></div>
       <h2><%= movie.title %><h2>
       <h3>Release Date: <%= movie.release_date %></h3>
       <h3>Genre: <%= movie.genre %></h3>
-      <div class="movie_reviews">
-        <div class="user_rating">
-          Rating
-        </div>
-        <div class="review">
-            "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother."
-        </div>
-        <br style="clear:both;">
-      </div>
+      <h3 class='plot'><%= simple_format(movie.plot) %></h3>
+      <br style="clear:both;">
     </div>
     <% end %>
   </div>

@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180123173644) do
     t.string "release_date"
     t.string "genre"
     t.text "review"
+    t.text "plot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
