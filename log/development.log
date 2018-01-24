@@ -3449,3 +3449,70 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 264ms (Views: 245.5ms | ActiveRecord: 8.8ms)
 
 
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Rear Window"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"], ["release_date", "1960"], ["genre", "Thriller"], ["created_at", "2018-01-24 14:40:23.196552"], ["updated_at", "2018-01-24 14:40:23.196552"]]
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Trouble with Harry"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNjlkYmE2YzYtYzIzMC00ODFhLTljNjYtZjA4YWY2ZGM5NTYwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1955"], ["genre", "Comedy"], ["created_at", "2018-01-24 14:40:23.218459"], ["updated_at", "2018-01-24 14:40:23.218459"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Rope"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMmFiM2VmNjQtOTYwZi00YjUxLWJjYWItNTE3NGRlNTBkMmIxXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1948"], ["genre", "Drama"], ["created_at", "2018-01-24 14:40:23.220351"], ["updated_at", "2018-01-24 14:40:23.220351"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "North by Northwest"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BZDA3NDExMTUtMDlhOC00MmQ5LWExZGUtYmI1NGVlZWI4OWNiXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1959"], ["genre", "Drama"], ["created_at", "2018-01-24 14:40:23.222138"], ["updated_at", "2018-01-24 14:40:23.222138"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Shadow of a Doubt"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BYzUyOGE2Y2EtYzI2My00MDcxLWFmNzYtYjMzN2NiMmMzMzAzL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1943"], ["genre", "Thriller"], ["created_at", "2018-01-24 14:40:23.223772"], ["updated_at", "2018-01-24 14:40:23.223772"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Birds"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMTAxNDA1ODc5MDleQTJeQWpwZ15BbWU4MDg2MDA4OTEx._V1_SX300.jpg"], ["release_date", "1963"], ["genre", "Drama"], ["created_at", "2018-01-24 14:40:23.225445"], ["updated_at", "2018-01-24 14:40:23.225445"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Man Who Knew Too Much"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNjQ2OWFhMjItYmFmNC00OGQzLWE1ZTMtZGQwZDM3YWUzMDgxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SX300.jpg"], ["release_date", "1956"], ["genre", "Drama"], ["created_at", "2018-01-24 14:40:23.227308"], ["updated_at", "2018-01-24 14:40:23.227308"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Saboteur"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMWNlZDIyZWItMDJkZS00OGZhLTg0YzYtOWVhM2ExZTY3NDk3L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1942"], ["genre", "Thriller"], ["created_at", "2018-01-24 14:40:23.229304"], ["updated_at", "2018-01-24 14:40:23.229304"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Jamaica Inn"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNTE3MDkwMjYzNl5BMl5BanBnXkFtZTgwMDU2NjA4MzE@._V1_SX300.jpg"], ["release_date", "1939"], ["genre", "Drama"], ["created_at", "2018-01-24 14:40:23.230996"], ["updated_at", "2018-01-24 14:40:23.230996"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-01-24 06:53:16 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  Rendered movie/index.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 537ms (Views: 509.7ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 07:03:54 -0800
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (2.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (47.7ms)
+Completed 401 Unauthorized in 70ms (ActiveRecord: 6.5ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+     6:       <!-- test image -->
+     7:       <!-- <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOWQ0MjRmZmUtY2Q2Yi00ODcxLWE4NGMtMTNjMDY1YmUzMjVkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg", alt="placeholder"> -->
+     8:       <!-- </div> -->
+     9:       <%= image_tag movie.image class: 'movie_img' %>
+    10:       <div class="img_rating">
+    11:         <!-- movie rating; should be the user's rating -->
+    12:         <!-- <span class=”glyphicon glyphicon-star”></span> -->
+  
+app/views/movie/index.html.erb:9:in `block in _app_views_movie_index_html_erb___1581895663281935480_70345509922180'
+app/views/movie/index.html.erb:3:in `_app_views_movie_index_html_erb___1581895663281935480_70345509922180'
+Started GET "/" for 127.0.0.1 at 2018-01-24 07:04:15 -0800
+Processing by MovieController#index as HTML
+  Rendering movie/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  Rendered movie/index.html.erb within layouts/application (9.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 25.6ms | ActiveRecord: 2.6ms)
+
+
