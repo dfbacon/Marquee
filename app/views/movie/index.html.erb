@@ -10,9 +10,8 @@
     </div>
     <div class="right">
       <div class='floater'></div>
-      <!-- <h2><%= link_to (movie.title), movie %></h2> -->
       <%= link_to(movie) do %>
-        <h2><%= movie.title %></h2>
+        <h2 class='title'><%= movie.title %></h2>
       <% end %>
       <h3>Release Date: <%= movie.release_date %></h3>
       <h3>Genre: <%= movie.genre %></h3>
@@ -24,5 +23,5 @@
 </div>
 
 <div class="reviews">
-  I'm reviews
+
 </div>
