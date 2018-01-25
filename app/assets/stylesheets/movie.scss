@@ -48,10 +48,28 @@
   margin-bottom: -115px;
 }
 
+/* Need to fix sizing and color for all title links; works for hover */
 h2 {
   font-size: 36px;
   font-style: italic;
+  color: #333;
   margin-bottom: -10px;
+}
+
+h2:visited {
+  font-size: 36px;
+  font-style: italic;
+  margin-bottom: -10px;
+  color: #333;
+  text-decoration: none;
+}
+
+h2:hover {
+  font-size: 36px;
+  font-style: italic;
+  margin-bottom: -10px;
+  color: #72f9b4;
+  text-decoration: none;
 }
 
 .plot {
@@ -71,7 +89,6 @@ h2 {
   overflow: hidden;
   font-family: 'Raleway', sans-serif;
   color: #333;
-  background-color: lightGrey;
   font-weight: 600;
   font-size: 12px;
   border-radius: 5px;

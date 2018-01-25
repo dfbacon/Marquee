@@ -35,3 +35,15 @@ m9 = Movie.create(title: 'Jamaica Inn', release_date: '1939', genre: 'Drama',
 m10 = Movie.create(title: 'Psycho', release_date: '1960', genre: 'Thriller',
   image: 'https://images-na.ssl-images-amazon.com/images/M/MV5BOWQ0MjRmZmUtY2Q2Yi00ODcxLWE4NGMtMTNjMDY1YmUzMjVkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg',
   plot: "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother.")
+
+# Reviews seeds
+r1 = Review.create(username: 'Testing', review: "Review for Rear Window.", movie_id: m1.id)
+r2 = Review.create(username: 'Testing', review: "Review for The Trouble with Harry.", movie_id: m2.id)
+r3 = Review.create(username: 'Testing', review: "Review for Rope.", movie_id: m3.id)
+r4 = Review.create(username: 'Testing', review: "Review for North by Northwest.", movie_id: m4.id)
+r5 = Review.create(username: 'Testing', review: "Review for Shadow of a Doubt.", movie_id: m5.id)
+r6 = Review.create(username: 'Testing', review: "Review for The Birds.", movie_id: m6.id)
+r7 = Review.create(username: 'Testing', review: "Review for The Man Who Knew Too Much.", movie_id: m7.id)
+r8 = Review.create(username: 'Testing', review: "Review for Saboteur.", movie_id: m8.id)
+r9 = Review.create(username: 'Testing', review: "Review for Jamaica Inn.", movie_id: m9.id)
+r10 = Review.create(username: 'Testing', review: "Review for Psycho.", movie_id: m10.id)

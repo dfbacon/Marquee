@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20180123173644) do
     t.string "image"
     t.string "release_date"
     t.string "genre"
-    t.text "review"
     t.text "plot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 20180123173644) do
   create_table "reviews", force: :cascade do |t|
     t.string "username"
     t.text "review"
-    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "movie_id"
