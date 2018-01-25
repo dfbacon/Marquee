@@ -1,0 +1,22 @@
+<div class="single_movie">
+  <div class="movie_info">
+    <h2><%= @movie.title %></h2>
+    <%= image_tag @movie.image class: 'movie_img' %>
+    <h3>Release Date: <%= @movie.release_date %></h3>
+    <h3>Genre: <%= @movie.genre %></h3>
+  </div>
+  <div class="all_reviews">
+    <% if @reviews.blank? %>
+      <h4> No reviews yet... Be the first! </h4>
+    <% else %>
+      <% @reviews.each do |review| %>
+      <div class='review'>
+        <p><%= review.username %></p>
+        <!-- <p><%= review.rating %></p> -->
+        <p><%= review.updated_at %></p>
+        <p><%= review.review %></p>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
