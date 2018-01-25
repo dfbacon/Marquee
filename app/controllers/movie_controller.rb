@@ -1,9 +1,14 @@
 class MovieController < ApplicationController
+
   def index
-    @movies = Movie.all
+    if current_user.nil?
+      redirect_to '/users/sign_up'
+    end
+      @movies = Movie.all
   end
 
-  def show
+  def show;
+    @movie = Movie.find(params[:id])
     @reviews = @movie.reviews
   end
 
@@ -16,9 +21,9 @@ class MovieController < ApplicationController
   def destroy; end
 
   private
-    def set_movie
-      @movie = Movie.find(params[:id])
-    end
+    # def set_movie
+    #   @movie = Movie.find(params[:id])
+    # end
 
     def movie_params
       params.require(:movie).permit(:title, :release_date, :genre, :plot, :image)

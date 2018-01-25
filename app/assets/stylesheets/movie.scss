@@ -48,24 +48,28 @@
   margin-bottom: -115px;
 }
 
-/* Need to fix sizing and color for all title links; works for hover */
 h2 {
   font-size: 36px;
   font-style: italic;
   color: #333;
+}
+
+h3, h4 {
+  color: #333;
+}
+
+.title {
   margin-bottom: -10px;
 }
 
-h2:visited {
-  font-size: 36px;
+.title:visited {
   font-style: italic;
   margin-bottom: -10px;
   color: #333;
   text-decoration: none;
 }
 
-h2:hover {
-  font-size: 36px;
+.title:hover {
   font-style: italic;
   margin-bottom: -10px;
   color: #72f9b4;
@@ -77,6 +81,25 @@ h2:hover {
   overflow: hidden;
   clear: left;
   font-style: italic;
+}
+
+.single_movie {
+  margin-left: 20px;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  clear: both;
+}
+
+.username, .updated {
+  text-align: right;
+  font-size: 11px;
+}
+
+.username {
+  margin-bottom: -10px;
 }
 
 .reviews {
@@ -92,4 +115,11 @@ h2:hover {
   font-weight: 600;
   font-size: 12px;
   border-radius: 5px;
+}
+
+.all_reviews {
+  width: 90%;
+  background-color: lightGrey;
+  border-radius: 5px;
+  padding: 0 5px;
 }

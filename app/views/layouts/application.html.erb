@@ -19,7 +19,7 @@
     <div class="header">
       <div class="container">
         <ul class='nav'>
-      		<li> Home </li> <li> Search </li> <li> Reviews </li> <li> About </li><!--<a href="./users/new"><li class="signup"> Sign Up / Login </li>-->
+      		<li> Home </li> <li> Search </li> <li> Reviews </li> <li> About </li>
           <% if user_signed_in? %>
             <p class="logged_in"> Logged in as <%= current_user.email %></p>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
@@ -37,7 +37,7 @@
           <h1>MARQUEE</h1>
 
           <%= yield %>
-          
+
           <br style="clear:both;">
         </div>
       </div>
