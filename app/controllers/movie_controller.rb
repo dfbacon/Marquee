@@ -3,8 +3,9 @@ class MovieController < ApplicationController
   def index
     if current_user.nil?
       redirect_to '/users/sign_up'
+    else
+      @movies = Movie.search(params[:movie])
     end
-      @movies = Movie.all
   end
 
   def show;
