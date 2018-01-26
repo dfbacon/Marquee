@@ -1,5 +1,8 @@
 <div class="movies">
   <div class="movie">
+    <% if @movies.blank? %>
+      <h4> There are no movies matching the title <%= params[:search] %>.</h4>
+    <% end %>
     <% @movies.each do |movie| %>
     <div class="left">
       <%= link_to (image_tag movie.image, class: 'movie_img'), movie %>
@@ -22,6 +25,4 @@
   </div>
 </div>
 
-<div class="reviews">
-
-</div>
+<div class="reviews"></div>
