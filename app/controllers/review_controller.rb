@@ -1,7 +1,20 @@
 class ReviewController < ApplicationController
-  def index; end
+  def index
+    @reviews = Review.all
+  end
 
   def show; end
+
+  def new
+    @movie = Movie.find(params[:movie_id])
+    @review = Review.new
+  end
+
+  def edit; end
+
+  def create; end
+  def update; end
+  def destroy; end
 
   private
     def set_review

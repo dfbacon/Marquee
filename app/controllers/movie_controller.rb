@@ -5,6 +5,7 @@ class MovieController < ApplicationController
       redirect_to '/users/sign_up'
     else
       @movies = Movie.search(params[:movie])
+      @reviews = Review.all
     end
   end
 
