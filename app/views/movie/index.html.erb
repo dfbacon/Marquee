@@ -16,7 +16,7 @@
       <%= link_to(movie) do %>
         <h2 class='title'><%= movie.title %></h2>
       <% end %>
-      <h3>Release Date: <%= movie.release_date %></h3>
+      <h3 class='release_date'>Release Date: <%= movie.release_date %></h3>
       <h3>Genre: <%= movie.genre %></h3>
       <h3 class='plot'><%= simple_format(movie.plot) %></h3>
       <br style="clear:both;">
@@ -25,4 +25,13 @@
   </div>
 </div>
 
-<div class="reviews"></div>
+<div class="reviews">
+  <h2> <u>Reviews</u> </h2>
+  <div class='review'>
+    <% @reviews.each do |review| %>
+      <h3 class='rvw'><%= review.review %></h3>
+      <p class='username'><%= review.username %></p>
+      <p class='updated'><%= review.updated_at %></p>
+    <% end %>
+  </div>
+</div>

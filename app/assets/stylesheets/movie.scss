@@ -4,7 +4,7 @@
   max-height: 1500px;
   margin-left: 20px;
   float: left;
-  overflow: hidden;
+  overflow: scroll;
   position: relative;
   font-family: 'Raleway', sans-serif;
   color: #333;
@@ -76,6 +76,10 @@ h3, h4 {
   text-decoration: none;
 }
 
+.release_date {
+  margin-bottom: -10px;
+}
+
 .plot {
   width: 75%;
   overflow: hidden;
@@ -114,12 +118,11 @@ p {
   color: #333;
   font-weight: 600;
   font-size: 12px;
-  border-radius: 5px;
+  border-left: 1px solid #72f9b4;
 }
 
-.all_reviews {
-  width: 90%;
-  background-color: lightGrey;
-  border-radius: 5px;
-  padding: 0 5px;
+.rvw {
+  font-size: 12px;
+  clear: left;
+  font-style: italic;
 }
