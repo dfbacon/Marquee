@@ -1,3 +1,49 @@
-// Place all the styles related to the Review controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.review_index {
+  width: 75%;
+  margin: auto;
+  min-height: 750px;
+  max-height: 1500px;
+  overflow: scroll;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  font-weight: 600;
+  font-size: 12px;
+  position: relative;
+}
+
+/*left*/
+.review_left {
+  position: absolute;
+  width: 30%;
+  height: 150px;
+  border-bottom: 1px solid #72f9b4;
+}
+
+.user_info {
+  margin: auto;
+  padding-bottom: 22px;
+  width: 50%;
+  text-align: left;
+  font-size: 11px;
+}
+
+.movie_title {
+  text-align: center;
+  font-size: 12px;
+}
+
+/*right*/
+.review_right {
+  height: 150px;
+  margin-left: 33%;
+  padding: 22px 0;
+}
+
+.user_review {
+  background-color: lightGrey;
+  margin: auto;
+  border-radius: 5px;
+  text-align: left;
+  padding: 2px 10px;
+  overflow: scroll;
+}

@@ -1,6 +1,6 @@
 class ReviewController < ApplicationController
   def index
-    @reviews = Review.all
+    @reviews = Review.all.order('updated_at DESC')
   end
 
   def show; end
