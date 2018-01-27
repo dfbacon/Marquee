@@ -1,6 +1,17 @@
-<div>
+<div class='review_index'>
   <% @reviews.each do |review| %>
-    <h3><%= review.review %></h3>
-    <h4><%= review.username %></h4>
+  <div class='review_left'>
+    <div class='user_info'>
+      <h4 class='movie_title'>Review for: <%= review.movie.title %></h4>
+      <h4><%= review.username %></h4>
+      <h4><%= review.updated_at %></h4>
+    </div>
+  </div>
+  <div class='review_right'>
+    <div class='user_review'>
+      <h3><%= review.review %></h3>
+      <br style="clear:both;">
+    </div>
+  </div>
   <% end %>
 </div>
