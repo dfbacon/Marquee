@@ -20,15 +20,15 @@
     <div class="header">
       <div class="container">
         <ul class='nav'>
-      		<li> Home </li> <li> Search </li> <li> Reviews </li> <li> About </li>
+          <%= link_to "Home", root_path, class: 'navbar-link' %>
           <% if user_signed_in? %>
-            <p class="logged_in"> Logged in as <%= current_user.email %></p>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
+            <p class="logged_in"> Logged in as <%= current_user.email %></p>
           <% else %>
             <%= link_to "Sign Up", new_user_registration_path, class: 'navbar-link' %>
             <%= link_to "Login", new_user_session_path, class: 'navbar-link' %>
           <% end %>
-          <%= form_tag(@movie, :method => 'get', id: 'search_form') do %>
+          <%= form_tag(root_path, :method => 'get', id: 'search_form', remote: true) do %>
             <%= text_field_tag :search, params[:movie], placeholder: 'Search Movies' %>
             <%= submit_tag 'Search', :name => nil, class: 'search_button' %>
           <% end %>

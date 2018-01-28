@@ -97,6 +97,10 @@ p {
   clear: both;
 }
 
+.show_review {
+  margin-left: 30px;
+  width: 80%;
+}
 .username, .updated {
   text-align: right;
   font-size: 11px;
@@ -104,6 +108,14 @@ p {
 
 .username {
   margin-bottom: -10px;
+}
+
+.updated {
+  padding-bottom: 10px;
+}
+
+#upd_at {
+  border-bottom: 1px solid #72f9b4;
 }
 
 .reviews {
