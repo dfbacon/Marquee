@@ -18,7 +18,14 @@ class MovieController < ApplicationController
     @movie = Movie.new
   end
 
-  def create; end
+  def add
+    @searched_movie = params[:new_title].split(' ').join('+')
+  end
+
+  def create
+    @movie = Movie.create(movie_params)
+  end
+
   def update; end
   def destroy; end
 
