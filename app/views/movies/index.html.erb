@@ -1,7 +1,8 @@
+
 <div class="movies">
   <div class="movie">
     <% if @movies.blank? %>
-      <h4> There are no movies matching the title <%= params[:search] %>.</h4>
+      <h4> There are no movies matching the title "<%= params[:movie_title] %>".</h4>
     <% end %>
     <% @movies.each do |movie| %>
     <div class="left">
