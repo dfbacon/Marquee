@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'movie#index'
-  get 'movie/:id', to: 'movie#show', as: :movie
-  get '/review/index', to: 'review#index', as: :all_reviews
+  root 'movies#index'
+  get 'movies/:id', to: 'movies#show', as: :movie
+  get '/reviews/index', to: 'reviews#index', as: :all_reviews
 end
