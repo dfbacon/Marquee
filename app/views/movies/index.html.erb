@@ -1,8 +1,8 @@
-
 <div class="movies">
   <div class="movie">
     <% if @movies.blank? %>
       <h4> There are no movies matching the title "<%= params[:movie_title] %>".</h4>
+      <%= link_to "Search TMDB", :search_tmdb, id: 'review_btn' %>
     <% end %>
     <% @movies.each do |movie| %>
     <div class="left">

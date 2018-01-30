@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'movies#index'
   get 'movies/:id', to: 'movies#show', as: :movie
   get '/reviews/index', to: 'reviews#index', as: :all_reviews
+  get '/search/index', to: 'search#index', as: :search_tmdb
 end
