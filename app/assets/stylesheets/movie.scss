@@ -121,11 +121,12 @@ p {
 .reviews {
   width: 30%;
   min-height: 750px;
-  max-height: 50%;
+  max-height: 1500px;
   float: right;
-  margin-right: 20px;
+  padding: 0 10px;
+  // margin-right: 20px;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
   font-family: 'Raleway', sans-serif;
   color: #333;
   font-weight: 600;
