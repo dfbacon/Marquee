@@ -15780,3 +15780,719 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 285ms (Views: 232.3ms | ActiveRecord: 18.2ms)
 
 
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 09:59:25 -0800
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 495ms (Views: 173.4ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:01:24 -0800
+  
+ArgumentError (Invalid route name, already in use: 'movie' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+http://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:6:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:01:38 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (2.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (5.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 496ms (Views: 157.2ms | ActiveRecord: 66.9ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:01:41 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 237ms (Views: 28.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-02 10:01:44 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 50ms (Views: 42.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies/10" for 127.0.0.1 at 2018-02-02 10:01:46 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 10]]
+  Rendered movies/show.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 145ms (Views: 28.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-02 10:01:47 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (9.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 61ms (Views: 45.6ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:01:51 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 245ms (Views: 25.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:07:52 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 386ms (Views: 131.8ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:08:18 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 261ms (Views: 28.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:09:54 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 438ms (Views: 182.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:16:48 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 277ms (Views: 38.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:16:51 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 254ms (Views: 29.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 10:16:53 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: movie):
+  
+app/controllers/movies_controller.rb:35:in `movie_params'
+app/controllers/movies_controller.rb:29:in `new'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 10:17:19 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: movie):
+  
+app/controllers/movies_controller.rb:35:in `movie_params'
+app/controllers/movies_controller.rb:29:in `new'
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:17:24 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  Rendered movies/index.html.erb within layouts/application (2.7ms)
+Completed 401 Unauthorized in 230ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"movies", :format=>37724, :id=>nil}, possible unmatched constraints: [:id]):
+    4:       <h2>Select the movie you're looking for:</h2>
+    5:       <br><br><br>
+    6:       <% @URL.results.each do |t| %>
+    7:         <%= link_to t.title, new_movie_path(@movie, t.id), id: 'new_btn' %> (<%= t.release_date %>)<br>
+    8:         <%= t.overview %>
+    9:         <%= t.id %><br><br><br><br><br>
+   10:       <% end %>
+  
+app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb__3689815430289278691_70117010276460'
+app/views/movies/index.html.erb:6:in `each'
+app/views/movies/index.html.erb:6:in `_app_views_movies_index_html_erb__3689815430289278691_70117010276460'
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:18:15 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  Rendered movies/index.html.erb within layouts/application (19.0ms)
+Completed 401 Unauthorized in 274ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"movies", :id=>nil}, possible unmatched constraints: [:id]):
+    4:       <h2>Select the movie you're looking for:</h2>
+    5:       <br><br><br>
+    6:       <% @URL.results.each do |t| %>
+    7:         <%= link_to t.title, new_movie_path(@movie, anchor: t.id), id: 'new_btn' %> (<%= t.release_date %>)<br>
+    8:         <%= t.overview %>
+    9:         <%= t.id %><br><br><br><br><br>
+   10:       <% end %>
+  
+app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb__3689815430289278691_70117005776140'
+app/views/movies/index.html.erb:6:in `each'
+app/views/movies/index.html.erb:6:in `_app_views_movies_index_html_erb__3689815430289278691_70117005776140'
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:18:29 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  Rendered movies/index.html.erb within layouts/application (2.7ms)
+Completed 401 Unauthorized in 237ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+    4:       <h2>Select the movie you're looking for:</h2>
+    5:       <br><br><br>
+    6:       <% @URL.results.each do |t| %>
+    7:         <%= link_to t.title, new_movie_path(@movie), id: 'new_btn' %> (<%= t.release_date %>)<br>
+    8:         <%= t.overview %>
+    9:         <%= t.id %><br><br><br><br><br>
+   10:       <% end %>
+  
+app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb__3689815430289278691_70117041358820'
+app/views/movies/index.html.erb:6:in `each'
+app/views/movies/index.html.erb:6:in `_app_views_movies_index_html_erb__3689815430289278691_70117041358820'
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:18:35 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  Rendered movies/index.html.erb within layouts/application (3.1ms)
+Completed 401 Unauthorized in 228ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"movies", :id=>nil}, missing required keys: [:id]):
+    4:       <h2>Select the movie you're looking for:</h2>
+    5:       <br><br><br>
+    6:       <% @URL.results.each do |t| %>
+    7:         <%= link_to t.title, new_movie_path(@movie), id: 'new_btn' %> (<%= t.release_date %>)<br>
+    8:         <%= t.overview %>
+    9:         <%= t.id %><br><br><br><br><br>
+   10:       <% end %>
+  
+app/views/movies/index.html.erb:7:in `block in _app_views_movies_index_html_erb__3689815430289278691_70117031939660'
+app/views/movies/index.html.erb:6:in `each'
+app/views/movies/index.html.erb:6:in `_app_views_movies_index_html_erb__3689815430289278691_70117031939660'
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 10:18:57 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 242ms (Views: 30.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 10:18:59 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: movie):
+  
+app/controllers/movies_controller.rb:35:in `movie_params'
+app/controllers/movies_controller.rb:29:in `new'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 10:57:04 -0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 28ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: movie):
+  
+app/controllers/movies_controller.rb:35:in `movie_params'
+app/controllers/movies_controller.rb:29:in `new'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:01:19 -0800
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Unpermitted parameter: :id
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 279ms (Views: 246.0ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:01:40 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Unpermitted parameter: :id
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:01:42 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Unpermitted parameter: :id
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=James+Bond" for 127.0.0.1 at 2018-02-02 11:01:44 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"James Bond"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%James Bond%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 308ms (Views: 32.8ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/movies/new/206647" for 127.0.0.1 at 2018-02-02 11:01:46 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"206647"}
+Unpermitted parameter: :id
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:02:26 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Unpermitted parameter: :id
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 33.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:03:00 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Unpermitted parameter: :id
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 31.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:04:37 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Unpermitted parameter: :id
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 277ms (Views: 38.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:06:30 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 254ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `title' for nil:NilClass):
+  
+app/controllers/movies_controller.rb:30:in `new'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:06:37 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 297ms (Views: 28.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:07:12 -0800
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:31: syntax error, unexpected tIDENTIFIER, expecting ')'
+...  @movie = Movie.new(:title url.title, :release_date)
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:31: syntax error, unexpected ')', expecting &. or :: or '[' or '.'
+...title url.title, :release_date)
+...                              ^
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:39: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/movies_controller.rb:31: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/movies_controller.rb:31: syntax error, unexpected ')', expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:39: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:07:23 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 355ms (Views: 148.0ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:08:39 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 211ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `name' for nil:NilClass):
+  
+app/controllers/movies_controller.rb:30:in `new'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:08:48 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 268ms (Views: 29.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:09:22 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 331ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `name' for #<MoviesController:0x00007f8ac6601410>):
+  
+app/controllers/movies_controller.rb:30:in `new'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:09:31 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+Completed 401 Unauthorized in 213ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/movies_controller.rb:30:in `new'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:10:12 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 253ms (Views: 41.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:12:05 -0800
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+...  @movie = Movie.new(:title url.title, :release_date url.rel...
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...le url.title, :release_date url.release_date, :plot url.over...
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...ate url.release_date, :plot url.overview, :image poster)
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...lot url.overview, :image poster)
+...                         ^~~~~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:40: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:40: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:12:44 -0800
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting '}'
+      :title url.title, :release_date url.rel...
+             ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...le url.title, :release_date url.release_date, :plot url.over...
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...ate url.release_date, :plot url.overview, :image poster
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...lot url.overview, :image poster
+...                         ^~~~~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:42: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:42: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:16:13 -0800
+  
+SyntaxError (/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting '}'
+      :title url.title, :release_date url.rel...
+             ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...le url.title, :release_date url.release_date, :plot url.over...
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...ate url.release_date, :plot url.overview, :image poster
+...                            ^~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+...lot url.overview, :image poster
+...                         ^~~~~~
+/Users/daniel_home/Documents/Projects/Marquee/app/controllers/movies_controller.rb:42: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:33: syntax error, unexpected tIDENTIFIER, expecting &. or :: or '[' or '.'
+app/controllers/movies_controller.rb:42: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:16:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/movies/new/37724"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:17:23 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/movies/new/37724"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:17:53 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 29.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:18:08 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:18:11 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:18:41 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 441ms (Views: 29.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:40:32 -0800
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (170.7ms)
+Completed 401 Unauthorized in 614ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (The asset "[" is not present in the asset pipeline.):
+    1: <h1>New</h1>
+    2: 
+    3: <%= image_tag @poster %>
+  
+app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb___820012794110135371_70117009473300'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:41:13 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (5.8ms)
+Completed 401 Unauthorized in 477ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `image' for #<Array:0x00007f8ac4f94920>):
+    1: <h1>New</h1>
+    2: 
+    3: <%= image_tag @poster.image, class: 'movie_img' %>
+  
+app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb___820012794110135371_70117005221500'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:41:21 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (174.1ms)
+Completed 401 Unauthorized in 571ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `image' for #<#<Class:0x00007f8ac660afd8>:0x00007f8ac9953890>
+Did you mean?  image_url):
+    1: <h1>New</h1>
+    2: 
+    3: <%= image_tag image, class: 'movie_img' %>
+  
+app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb___820012794110135371_70117009195280'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:41:39 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (119.4ms)
+Completed 401 Unauthorized in 528ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (The asset "[" is not present in the asset pipeline.):
+    1: <h1>New</h1>
+    2: 
+    3: <%= image_tag @poster, class: 'movie_img' %>
+  
+app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb___820012794110135371_70117008890860'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:42:17 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (111.1ms)
+Completed 401 Unauthorized in 544ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `poster' for #<#<Class:0x00007f8ac66af420>:0x00007f8ac912f1f0>):
+    1: <h1>New</h1>
+    2: 
+    3: <%= image_tag self.poster, class: 'movie_img' %>
+  
+app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb___820012794110135371_70117005566940'
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:42:44 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 464ms (Views: 47.6ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/movies/new/37724" for 127.0.0.1 at 2018-02-02 11:44:49 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"37724"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 462ms (Views: 53.6ms | ActiveRecord: 7.4ms)
+
+

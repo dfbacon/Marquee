@@ -4,12 +4,11 @@
       <h2>Select the movie you're looking for:</h2>
       <br><br><br>
       <% @URL.results.each do |t| %>
-        <%= link_to t.title, root_path, id: 'review_btn' %> (<%= t.release_date %>)<br>
+        <%= link_to t.title, new_movie_path(id: t.id), id: 'new_btn' %> (<%= t.release_date %>)<br>
         <%= t.overview %>
         <%= t.id %><br><br><br><br><br>
       <% end %>
       <br><br>
-      <%= link_to "Search TMDB", :search_tmdb, id: 'review_btn' %>
     <% else %>
       <% @movies.each do |movie| %>
       <div class="left">

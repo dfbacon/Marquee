@@ -25,8 +25,18 @@ class MoviesController < ApplicationController
     @reviews = @movie.reviews
   end
 
+  def new
+    url = Tmdb::Movie.detail(params[:id])
+    @URL = url
+    poster = Tmdb::Movie.posters(params[:id])
+    # @movie = Movie.new(movie.params) {
+    #   :title url.title, :release_date url.release_date, :plot url.overview, :image poster
+    # }
+  end
+
+
   private
     def movie_params
-      params.require(:movie).permit(:title, :release_date, :genre, :plot, :image)
+      params.permit(:title, :release_date, :plot, :image)
     end
 end
