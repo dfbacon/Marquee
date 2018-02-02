@@ -36,11 +36,16 @@ class MoviesController < ApplicationController
     @movie_poster = base_url+@poster_url
 
     @new_info = { :title => url.title, :release_date => url.release_date, :plot => url.overview, :image => @movie_poster }
-    @movie = Movie.new(@new_info)
+    # @movie = Movie.new(@new_info)
+    @movie = Movie.find_or_create_by(title: url.title) do |m|
+      m.release_date = url.release_date
+      m.plot = url.overview
+      m.image = @movie_poster
+    end
   end
 
   def create
-    
+
   end
 
 
