@@ -1,11 +1,10 @@
 <div class="movies">
   <div class="movie">
     <% if @tmdb %>
-      <!-- URL: <%= @URL %> -->
       <h2>Select the movie you're looking for:</h2>
       <br><br><br>
       <% @URL.results.each do |t| %>
-        <%= t.title %> (<%= t.release_date %>)<br>
+        <%= link_to t.title, root_path, id: 'review_btn' %> (<%= t.release_date %>)<br>
         <%= t.overview %>
         <%= t.id %><br><br><br><br><br>
       <% end %>
