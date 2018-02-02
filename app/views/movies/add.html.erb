@@ -1,0 +1,20 @@
+<div class="movies">
+  <div class="movie">
+    <div class="left">
+      <%= image_tag @movie.image, class: 'movie_img' %>
+      <div class="img_rating">
+        <!-- movie rating; should be the user's rating -->
+        <!-- <span class=”glyphicon glyphicon-star”></span> -->
+      </div>
+    </div>
+    <div class="right">
+      <div class='floater'></div>
+        <h2 class='title'><%= @movie.title %></h2>
+      <h3 class='release_date'>Release Date: <%= @movie.release_date %></h3>
+      <h3 class='plot'><%= simple_format(@movie.plot) %></h3>
+
+      <br style="clear:both;">
+    </div>
+    <%= link_to "Add Movie", root_path, id: 'new_btn' %>
+  </div>
+</div>
