@@ -5,10 +5,11 @@ class MoviesController < ApplicationController
       redirect_to '/users/sign_up'
     else
       @movies = if params[:movie_title]
-        query = Movie.where('title LIKE ?', "%#{params[:movie_title]}%")
+        search_params = params[:movie_title].titleize
+        query = Movie.where('title LIKE ?', "%#{search_params}%")
         if query.blank?
           @tmdb = true
-          url = Tmdb::Search.movie(params[:movie_title])
+          url = Tmdb::Search.movie(search_params)
           @URL = url
         else
           query
