@@ -1,7 +1,7 @@
 <div class="movie">
   <div class="left">
     <div class='single_movie'>
-      <h2><%= @movie.title %></h2>
+      <h2 class='new_movie_title'><%= @movie.title %></h2>
       <%= image_tag @movie.image, class: 'movie_img' %>
       <h3>Release Date: <%= @movie.release_date %></h3>
       <h3>Genre: <%= @movie.genre %></h3>
@@ -9,7 +9,10 @@
   </div>
   <div class="right">
     <% if @reviews.blank? %>
-      <h4> No reviews yet... Be the first! </h4>
+    <div class='blank_reviews'>
+        <h4> No reviews yet... Be the first! </h4>
+      </div>
+    </div>
     <% else %>
       <% @reviews.each do |review| %>
       <div class='show_review'>
