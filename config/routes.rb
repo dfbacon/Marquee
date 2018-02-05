@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   match 'movies/:id', to: 'movies#show', via: :get, as: :movie
   match 'movies/:id', to: 'movies#create', via: :post, as: :create_movie
   get 'movies/add/:id', to: 'movies#add', as: :add_movie
-  get '/reviews/index', to: 'reviews#index', as: :all_reviews
-  get '/reviews/new', to: 'reviews#new', as: :new_review
-  post 'reviews', to: 'reviews#create'
+
+  resources :reviews
 end

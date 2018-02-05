@@ -1,6 +1,5 @@
 <h2>New Review</h2>
 <%= form_for(@review) do |f| %>
-
 <% if @review.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
@@ -19,7 +18,6 @@
   <div class="field">
     <%= f.label :review %><br>
     <%= f.text_area :review %>
-    <!-- <%= f.hidden_field :new_movie_id, value: @movie.id %> -->
   </div>
   <div class="actions">
     <%= f.submit 'Post Review' %>
