@@ -36,7 +36,8 @@ Additional gems:
   * [themoviedb-api](https://github.com/18Months/themoviedb-api)
 
 To install: `bundle install`
-To the run server: `https://github.com/18Months/themoviedb-api`
+
+To the run server: `rails server`
 
 To Do
 -----
