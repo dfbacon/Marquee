@@ -47,3 +47,18 @@
   padding: 2px 10px;
   overflow: scroll;
 }
+
+#back_button {
+  border: none;
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  padding: 10px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#back_button:hover {
+  color: #72f9b4;
+}

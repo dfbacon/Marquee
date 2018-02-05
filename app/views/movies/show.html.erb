@@ -4,6 +4,7 @@
       <h2 class='new_movie_title'><%= @movie.title %></h2>
       <%= image_tag @movie.image, class: 'movie_img' %>
       <h3>Release Date: <%= @movie.release_date %></h3>
+      <%= link_to 'Add a review', new_review_path(id: @movie.id), id: 'review_btn' %>
     </div>
   </div>
   <div class="right">
