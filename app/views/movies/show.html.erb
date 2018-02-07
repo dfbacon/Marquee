@@ -1,5 +1,5 @@
 <div class="movie">
-  <%= link_to 'Add a review', new_movie_review_path(movie_id: @movie.id), id: 'review_btn' %>
+  <%= link_to 'Add a New Review', new_movie_review_path(movie_id: @movie.id), id: 'review_btn' %>
   <div class="left">
     <div class='single_movie'>
       <h2 class='new_movie_title'><%= @movie.title %></h2>
@@ -22,6 +22,7 @@
         <div class='all_reviews'>
           <p class='user_review'><%= review.body %></p>
           <p class='username'><%= review.username %></p>
+          <p class='user_rating'><%= review.rating %> out of 5 </p>
           <p class='updated', id="upd_at"><%= review.updated_at %></p>
         </div>
       </div>

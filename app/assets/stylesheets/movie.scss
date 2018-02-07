@@ -107,7 +107,7 @@ p {
   width: 70%;
 }
 
-.username, .updated {
+.username, .updated, .user_rating {
   text-align: right;
   font-size: 11px;
 }
@@ -118,6 +118,10 @@ p {
 
 .updated {
   padding-bottom: 10px;
+}
+
+.user_rating {
+  margin-bottom: -10px;
 }
 
 #upd_at {
@@ -137,6 +141,10 @@ p {
   font-weight: 600;
   font-size: 12px;
   border-left: 1px solid #72f9b4;
+}
+
+.review h4 {
+  text-align: left;
 }
 
 .rvw {
