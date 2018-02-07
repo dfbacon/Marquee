@@ -1,5 +1,5 @@
 <h2>New Review</h2>
-<%= form_for @review do |f| %>
+<%= form_for @review, url: movie_reviews_path do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>

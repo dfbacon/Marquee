@@ -6,14 +6,14 @@ class ReviewsController < ApplicationController
   def show; end
 
   def new
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
     @review = Review.new
   end
 
   def edit; end
 
   def create
-    @movie = Movie.find(11)
+    @movie = Movie.find(params[:movie_id])
     @review = Review.new(review_params)
     @review.username = current_user.email
     @review.movie_id = @movie.id
