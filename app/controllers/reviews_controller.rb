@@ -13,8 +13,9 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def create
+    @movie = Movie.find(11)
     @review = Review.new(review_params)
-    @review.username = current_user
+    @review.username = current_user.email
     @review.movie_id = @movie.id
 
     if @review.save
@@ -44,6 +45,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.permit(:review)
+      params.permit(:body, :username, :movie_id)
     end
 end

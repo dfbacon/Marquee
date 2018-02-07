@@ -17,7 +17,7 @@
       <% @reviews.each do |review| %>
       <div class='show_review'>
         <div class='all_reviews'>
-          <p class='user_review'><%= review.review %></p>
+          <p class='user_review'><%= review.body %></p>
           <p class='username'><%= review.username %></p>
           <p class='updated', id="upd_at"><%= review.updated_at %></p>
         </div>

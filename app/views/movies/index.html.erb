@@ -36,7 +36,7 @@
   <h2> <u>Latest Reviews</u> </h2>
   <div class='review'>
     <% @reviews.each do |review| %>
-      <h3 class='rvw'><%= review.review %></h3>
+      <h3 class='rvw'><%= review.body %></h3>
       <p class='username'><%= review.username %></p>
       <p class='updated'><%= review.updated_at %></p>
     <% end %>
