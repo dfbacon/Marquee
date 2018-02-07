@@ -76,10 +76,6 @@ h3, h4 {
   text-decoration: none;
 }
 
-.release_date {
-  margin-bottom: -10px;
-}
-
 .plot {
   width: 75%;
   overflow: hidden;
@@ -111,7 +107,7 @@ p {
   width: 70%;
 }
 
-.username, .updated {
+.username, .updated, .user_rating {
   text-align: right;
   font-size: 11px;
 }
@@ -124,6 +120,10 @@ p {
   padding-bottom: 10px;
 }
 
+.user_rating {
+  margin-bottom: -10px;
+}
+
 #upd_at {
   border-bottom: 1px solid #72f9b4;
 }
@@ -134,7 +134,6 @@ p {
   max-height: 1300px;
   float: right;
   padding: 0 10px;
-  // margin-right: 20px;
   position: relative;
   overflow: scroll;
   font-family: 'Raleway', sans-serif;
@@ -142,6 +141,10 @@ p {
   font-weight: 600;
   font-size: 12px;
   border-left: 1px solid #72f9b4;
+}
+
+.review h4 {
+  text-align: left;
 }
 
 .rvw {
@@ -154,11 +157,12 @@ p {
   border: none;
   color: #333;
   font-family: 'Raleway', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px 18px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  margin-bottom: 50px;
 }
 
 #new_btn {

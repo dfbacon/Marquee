@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180123173644) do
   create_table "reviews", force: :cascade do |t|
     t.string "username"
     t.text "body"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "movie_id"

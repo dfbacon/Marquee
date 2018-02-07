@@ -13,10 +13,6 @@
       <% @movies.each do |movie| %>
       <div class="left">
         <%= link_to (image_tag movie.image, class: 'movie_img'), movie %>
-        <div class="img_rating">
-          <!-- movie rating; should be the user's rating -->
-          <!-- <span class=”glyphicon glyphicon-star”></span> -->
-        </div>
       </div>
       <div class="right">
         <div class='floater'></div>
@@ -39,8 +35,10 @@
   <h2> <u>Latest Reviews</u> </h2>
   <div class='review'>
     <% @reviews.each do |review| %>
+      <h4>Review for: <u><%= review.movie.title %></u></h4>
       <h3 class='rvw'><%= review.body %></h3>
       <p class='username'><%= review.username %></p>
+      <p class='user_rating'><%= review.rating %> out of 5 </p>
       <p class='updated'><%= review.updated_at %></p>
     <% end %>
   </div>

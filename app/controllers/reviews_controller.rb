@@ -18,6 +18,8 @@ class ReviewsController < ApplicationController
     @review.username = current_user.email
     @review.movie_id = @movie.id
     @review.body = params[:review][:body]
+    @review.rating = params[:review][:rating]
+
 
     if @review.save
       redirect_to root_path(@movie)
@@ -46,6 +48,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:review, :body, :username, :movie_id)
+      params.require(:review).permit(:review, :body, :username, :rating, :movie_id)
     end
 end
