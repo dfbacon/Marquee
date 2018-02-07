@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
     @reviews = @movie.reviews
   end
 
-  def add
+  def new
     url = Tmdb::Movie.detail(params[:id])
 
     poster = Tmdb::Movie.posters(params[:id])
