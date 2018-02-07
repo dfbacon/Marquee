@@ -6,7 +6,6 @@ class CreateMovies < ActiveRecord::Migration[5.1]
       t.string :release_date
       t.text :plot
       t.text :genre
-      t.integer :rating
       t.timestamps
     end
   end
