@@ -28224,3 +28224,1070 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 63ms (Views: 48.2ms | ActiveRecord: 10.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:04:29 -0800
+  [1m[35m (28.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-02-07 10:04:30 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (724.7ms)
+Completed 200 OK in 2654ms (Views: 2631.9ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-02-07 10:04:37 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 63ms (Views: 56.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-02-07 10:04:42 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"orQfSHQgP/PPdJrKmloZHlYRFfL8uny2rS3uX2hdwrlxFN32XdaIN/qfJvJshm4Jzf7IbJ1ljw9DRV9RUCQA/w==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (37.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2018-02-07 18:04:42.221763"], ["sign_in_count", 2], ["updated_at", "2018-02-07 18:04:42.224068"], ["id", 1]]
+  [1m[35m (144.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 349ms (ActiveRecord: 182.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:04:42 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (21.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (50.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (136.9ms)
+Completed 200 OK in 230ms (Views: 77.4ms | ActiveRecord: 75.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:06:05 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 225ms (Views: 178.8ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:06:08 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (14.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 123ms (Views: 31.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:06:09 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (34.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 51.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:06:17 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SloXSUua7m9sZJALiJ+HaAMTNJ69sGBFrdYEhDrDQRcnfL8bke6wjlYCt/93wSTD1r07Zal5S+eow5aB1ORDLg==", "review"=>{"body"=>"Star Wars review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `body' for <ActionController::Parameters {"movie_id"=>"11"} permitted: true>:ActionController::Parameters):
+  
+app/controllers/reviews_controller.rb:18:in `create'
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:06:53 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 31.0ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:06:56 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zcCg0IlWOp4uh4ihsYQIkTTXxf2LSR6lRwrgwOAMgxaa+IzIBnSruGECRhhViq1lPsfCBcDvjAjCbMs1QfwH4g==", "review"=>{"body"=>"review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Completed 401 Unauthorized in 159ms (ActiveRecord: 0.3ms)
+
+
+  
+NameError (undefined local variable or method `review' for #<ReviewsController:0x00007f84dbc45fb0>
+Did you mean?  @review):
+  
+app/controllers/reviews_controller.rb:18:in `create'
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:07:24 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 34.7ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:07:28 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6bTiePYI+qOUlnjrXppRoz3B07LpTH3zItybMpmYMTW+jM5geSprhdsTtlK6lPRXN9HUSqLq716nurDHOGi1wQ==", "review"=>{"body"=>"new review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (22.0ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:07:28.613675"], ["updated_at", "2018-02-07 18:07:28.613675"], ["movie_id", 11]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 23.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:07:28 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:07:31 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 25.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:07:47 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (15.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 75ms (Views: 47.4ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:07:48 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 38.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:07:51 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XzMVi9Y9Ae0nlT6hJhrNk2DSLTB/QVYr/ftotUzMPw0yFb3ZDElfDB3zGVXZRG44tXwiy2uIfYn47vqwous9NA==", "review"=>{"body"=>"reviuew", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Completed 401 Unauthorized in 145ms (ActiveRecord: 1.1ms)
+
+
+  
+NameError (undefined local variable or method `review' for #<ReviewsController:0x00007f84e15849a0>
+Did you mean?  @review):
+  
+app/controllers/reviews_controller.rb:18:in `create'
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:08:18 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 33.5ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:08:22 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uo+9yiPsKgTZCXy6Ql9m+1vYJAciNDImFqS8NtsKvtUFt5HSrM67IpaMsgOmUcMPUcgj/2mSoIuTwpfDevo6IQ==", "review"=>{"body"=>"review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Completed 401 Unauthorized in 117ms (ActiveRecord: 0.1ms)
+
+
+  
+NameError (undefined local variable or method `results' for #<ReviewsController:0x00007f84e1308708>):
+  
+app/controllers/reviews_controller.rb:18:in `create'
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:08:49 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 71ms (Views: 31.5ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:08:52 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bw6F5QUPohpqxDjo+zdhbch8Z0qJW0l8oUtbslYidk1QNqn9ii0zPCVB9lEfOcSZwmxgssL929EkLXBH99LyuQ==", "review"=>{"body"=>"review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:08:52.918355"], ["updated_at", "2018-02-07 18:08:52.918355"], ["movie_id", 11]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:08:52 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 38ms (Views: 34.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:08:55 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 27.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:09:10 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (11.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 44.6ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:09:12 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 38.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:09:14 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jKb15OI8BgQQw0DmO+9yvSyiync9TLyWywiI1fmq0inhgF22OEhY5SqlZxLEsdEW+QzFjCmFlzTOHRrQF43QEA==", "review"=>{"body"=>"review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `body' for :review:Symbol):
+  
+app/controllers/reviews_controller.rb:18:in `create'
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:09:36 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 33.7ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:09:38 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oj6T+djzK/7OYi+wXnj9Cz8SArdUJTyhH9EJQxobv9r1Br/hV9G62IHn4Qm6dlj/NQIFTx+DrgyatyK2u+s7Lg==", "review"=>{"body"=>"r", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+Completed 401 Unauthorized in 108ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (undefined local variable or method `review' for #<ReviewsController:0x00007f84e1635ef8>
+Did you mean?  @review):
+  
+app/controllers/reviews_controller.rb:18:in `create'
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:10:30 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 43.1ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:10:33 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5bJsWi5LGcmwT8RQHWl2iapHRj9L8RhxmiaCHNSp7v6yikBCoWmI7//KCun5Z9N9oFdBxwBXitwfQKnpdVlqCg==", "review"=>{"body"=>"review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:10:33.550479"], ["updated_at", "2018-02-07 18:10:33.550479"], ["movie_id", 11]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:10:33 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 47ms (Views: 42.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:11:16 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 46ms (Views: 41.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:11:17 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 30.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:11:18 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 23.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:11:18 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (1.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 28.6ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:11:21 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iLwPX2TlVoasfyhsA3TrQqapyYoHPOiHVr/XC5Kb+MflmqcNvpEIZ5YZD5j8KkjpcwfGcRP1wyVTqkUOfLz6/g==", "review"=>{"body"=>"review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:11:21.700819"], ["updated_at", "2018-02-07 18:11:21.700819"], ["movie_id", 11]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:11:21 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:11:52 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (11.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 62ms (Views: 38.1ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:11:53 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 22.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:11:58 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u/BlPinQCSulH+wURI6YzUNgVdFxQQA5i0xsAtlCTdDW1s1s86RXyp95y+C70Dtmls5aKmWIK5uOWf4HN2VP6Q==", "review"=>{"body"=>"new review\r\n", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:11:58.383590"], ["updated_at", "2018-02-07 18:11:58.383590"], ["movie_id", 11]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:11:58 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 37ms (Views: 33.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:12:57 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 73ms (Views: 49.6ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:12:58 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (6.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 24.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:12:59 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:13:04 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HwMFUkyT63+L/CtbEhJ/ahqtXEuIAMQpA/plEg3ueK5yJa0Alue1nrGaDK/tTNzBzwNTsJzJ74sG7/cX48l6lw==", "review"=>{"body"=>"review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test@test.com"], ["body", "body"], ["created_at", "2018-02-07 18:13:04.719832"], ["updated_at", "2018-02-07 18:13:04.719832"], ["movie_id", 11]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:13:04 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 44ms (Views: 40.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:13:24 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 79ms (Views: 55.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:13:25 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (7.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 27.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:13:27 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 21.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:13:32 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9l/l6EPGSWXzPyN+Q9SlLQpLaQe7WZKrL8y5Ks43s8ubeU26mbIXhMlZBIq8igaG3+Vm/K+QuQkq2SsvIBCx8g==", "review"=>{"body"=>"new review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :review, :commit
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:13:32.386459"], ["updated_at", "2018-02-07 18:13:32.386459"], ["movie_id", 11]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:13:32 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:14:17 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 76ms (Views: 52.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:14:18 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 40ms (Views: 35.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:14:19 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (7.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 25.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:14:20 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 22.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:14:23 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5ed0Z/HJ6E89S16tK80HDOCrbFv27kX6Gvt8vXJdX6OIwdw1K722rgcteVnUk6SnNQVjoOInblgf7u64nHpdmg==", "review"=>{"body"=>"new review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:14:23.859065"], ["updated_at", "2018-02-07 18:14:23.859065"], ["movie_id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:14:23 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 39ms (Views: 35.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:15:49 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 69ms (Views: 44.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:15:50 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 30.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:15:52 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (3.4ms)
+Completed 401 Unauthorized in 17ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `label' for nil:NilClass):
+    14:     <div id="star-rating"></div>
+    15:   </div>
+    16:   <div class="field">
+    17:     <%= f.label :review %><br>
+    18:     <%= f.text_area :body %>
+    19:     <%= f.hidden_field :movie_id, value: params[:id] %>
+    20:   </div>
+  
+app/views/reviews/new.html.erb:17:in `block in _app_views_reviews_new_html_erb__1913010534174121821_70104333133660'
+app/views/reviews/new.html.erb:2:in `_app_views_reviews_new_html_erb__1913010534174121821_70104333133660'
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:16:04 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:16:26 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:16:38 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 54ms (Views: 47.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:17:07 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:17:07 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (7.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 29.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:17:09 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:18:27 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:18:41 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:18:52 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:19:06 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:19:17 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:23:07 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:23:09 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 47ms (Views: 40.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:23:10 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:23:11 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (2.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 26.1ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:23:16 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Qs/fbv5PYwvXyPR10gEkUBoohBC87w/xF4WqFXPJ6WMLZcvYY1jbRU5BCUoFqc6lcat61Y6l53BS4Stu+glnA==", "review"=>{"body"=>"new review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test@test.com"], ["created_at", "2018-02-07 18:23:16.399056"], ["updated_at", "2018-02-07 18:23:16.399056"], ["movie_id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:23:16 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 40ms (Views: 35.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:23:29 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 39ms (Views: 34.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:24:03 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 69ms (Views: 46.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:24:03 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 33.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:24:05 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 25.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:24:08 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N5DHsCuQgE82vvZyyXLChwKqcKWwSaDnIGqYEI2A8mhatm/i8eTergzY0YY2LGEs1wR/XqSAi0UlfwoVY6fwUQ==", "review"=>{"body"=>"new review", "movie_id"=>""}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test@test.com"], ["body", "new review"], ["created_at", "2018-02-07 18:24:08.861848"], ["updated_at", "2018-02-07 18:24:08.861848"], ["movie_id", 11]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:24:08 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 47ms (Views: 42.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:24:33 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 68ms (Views: 45.3ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/movies/11" for 127.0.0.1 at 2018-02-07 10:24:34 -0800
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = $1[0m  [["movie_id", 11]]
+  Rendered movies/show.html.erb within layouts/application (14.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 35.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies/11/reviews/new" for 127.0.0.1 at 2018-02-07 10:24:35 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"11"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 26ms (Views: 22.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/movies/11/reviews" for 127.0.0.1 at 2018-02-07 10:24:44 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GU41csoLbeDgzM93wDXFdgR2TgmA5tMNfbKWeY7shY10aJ0gEH8zAdqq6IM/a2bd0dhB8pQv+K94pwR8YMuHtA==", "review"=>{"body"=>"another new review\r\n\r\n\r\n\r\n\r\n\r\n"}, "commit"=>"Post Review", "movie_id"=>"11"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test@test.com"], ["body", "another new review\r\n\r\n\r\n\r\n\r\n\r\n"], ["created_at", "2018-02-07 18:24:44.513164"], ["updated_at", "2018-02-07 18:24:44.513164"], ["movie_id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:24:44 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 41ms (Views: 37.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:24:50 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 48ms (Views: 43.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/reviews" for 127.0.0.1 at 2018-02-07 10:24:53 -0800
+Processing by ReviewsController#index as HTML
+  Rendering reviews/index.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE Movie Load (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered reviews/index.html.erb within layouts/application (48.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 66.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=star+wars" for 127.0.0.1 at 2018-02-07 10:24:58 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"star wars"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (1.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%Star Wars%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 42ms (Views: 35.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/?utf8=%E2%9C%93&movie_title=star+wars+episode" for 127.0.0.1 at 2018-02-07 10:25:08 -0800
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "movie_title"=>"star wars episode"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (title LIKE '%Star Wars Episode%')[0m
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 455ms (Views: 32.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/movies/new?id=1893" for 127.0.0.1 at 2018-02-07 10:25:12 -0800
+Processing by MoviesController#new as HTML
+  Parameters: {"id"=>"1893"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."title" = $1 LIMIT $2[0m  [["title", "Star Wars: Episode I - The Phantom Menace"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Star Wars: Episode I - The Phantom Menace"], ["image", "https://image.tmdb.org/t/p/w342/n8V09dDc02KsSN6Q4hC2BX6hN8X.jpg"], ["release_date", "1999-05-19"], ["plot", "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi."], ["created_at", "2018-02-07 18:25:12.642762"], ["updated_at", "2018-02-07 18:25:12.642762"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/new.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 464ms (Views: 18.3ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-07 10:25:16 -0800
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY created_at DESC[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY updated_at DESC[0m
+  Rendered movies/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 49ms (Views: 43.1ms | ActiveRecord: 1.7ms)
+
+
