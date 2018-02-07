@@ -23,7 +23,10 @@
         <%= link_to(movie) do %>
           <h2 class='title'><%= movie.title %></h2>
         <% end %>
-        <h3 class='release_date'>Release Date: <%= movie.release_date %></h3>
+        <h3 class='release_date'>
+          Release Date: <%= movie.release_date %> <br>
+          Genre: <%= movie.genre %>
+        </h3>
         <h3 class='plot'><%= simple_format(movie.plot) %></h3>
         <br style="clear:both;">
       </div>
