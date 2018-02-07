@@ -1,0 +1,25 @@
+<h2>New Review</h2>
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <div id="star-rating"></div>
+  </div>
+  <div class="field">
+    <%= f.label :review %><br>
+    <%= f.text_area :review %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Post Review' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', root_path(@movie), id: 'back_button'%>

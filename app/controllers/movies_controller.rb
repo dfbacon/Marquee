@@ -45,11 +45,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  def create
-
-  end
-
-
   private
     def movie_params
       params.permit(:title, :release_date , :plot, :image)
