@@ -41,7 +41,6 @@ To the run server: `rails server`
 
 To Do
 -----
- * Add reviews to db
  * Add rating system
  * Add testing suite
  * Deploy on Heroku
