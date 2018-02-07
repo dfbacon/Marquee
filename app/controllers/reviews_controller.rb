@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.username = current_user.email
     @review.movie_id = @movie.id
+    @review.body = params[:review][:body]
 
     if @review.save
       redirect_to root_path(@movie)
@@ -45,6 +46,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.permit(:body, :username, :movie_id)
+      params.require(:review).permit(:review, :body, :username, :movie_id)
     end
 end
