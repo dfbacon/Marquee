@@ -13,10 +13,6 @@
       <% @movies.each do |movie| %>
       <div class="left">
         <%= link_to (image_tag movie.image, class: 'movie_img'), movie %>
-        <div class="img_rating">
-          <!-- movie rating; should be the user's rating -->
-          <!-- <span class=”glyphicon glyphicon-star”></span> -->
-        </div>
       </div>
       <div class="right">
         <div class='floater'></div>
@@ -25,7 +21,8 @@
         <% end %>
         <h3 class='release_date'>
           Release Date: <%= movie.release_date %> <br>
-          Genre: <%= movie.genre %>
+          Genre: <%= movie.genre %><br>
+          Rating: <%= movie.rating %>
         </h3>
         <h3 class='plot'><%= simple_format(movie.plot) %></h3>
         <br style="clear:both;">

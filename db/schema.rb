@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180123173644) do
     t.string "release_date"
     t.text "plot"
     t.text "genre"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
