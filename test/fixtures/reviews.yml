@@ -5,13 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  username: MyString
-  body: MyText
-  rating: MyInteger
+  username: TestUser1
+  body: Test review one.
+  rating: 1
   movie: valid
 #
 two:
-    username: MyString
-    body: MyText
-    rating: MyInteger
+    username: TestUser2
+    body: Test review two.
+    rating: 2
     movie: valid
