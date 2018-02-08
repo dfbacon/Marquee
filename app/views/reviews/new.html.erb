@@ -16,7 +16,7 @@
   <div class="field">
     <%= f.text_area :body, size: '100x25' %><br><br>
     <%= f.label :rating %>
-    <%= f.number_field :rating, in: 0..5, step: 1 %> out of 5<br><br>
+    <%= f.number_field :rating, in: 0..5, step: 1, :value => 0 %> out of 5<br><br>
   </div>
   <div class="actions">
     <%= f.submit 'Post Review', class: 'search_button'  %>
