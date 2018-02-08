@@ -10,6 +10,13 @@ valid:
   genre: Test
   release_date: today
 #
+old:
+  title: Old
+  plot: Same old plot.
+  genre: Old Test
+  release_date: yesterday
+  created_at: <%= 2.weeks.ago %>
+#
 one: {}
 # column: value
 #

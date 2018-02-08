@@ -25,8 +25,14 @@ class MovieTest < ActiveSupport::TestCase
     assert_not_nil @movie.errors[:release_date], 'no validation error for release date present'
   end
 
-  #MARK: - Association test set
+  #MARK: - Movie/Review association test set
   test '#reviews' do
     assert_equal 2, @movie.reviews.size
+  end
+
+  #MARK: - Created_at test set
+  test '#recent' do
+    assert_includes Movie.recent, movies(:valid)
+    refute_includes Movie.recent, movies(:old)
   end
 end
