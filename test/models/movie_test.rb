@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MovieTest < ActiveSupport::TestCase
   def setup
-    @movie = Movie.new(title: 'Testing', plot: 'test plot for testing.', genre: 'Test', release_date: 'today')
+    @movie = movies(:valid)
   end
 
   test 'valid movie' do
