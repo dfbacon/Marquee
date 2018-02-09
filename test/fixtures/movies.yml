@@ -1,11 +1,12 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
+valid:
+  title: Testing
+  plot: test plot for testing.
+  genre: Test
+  release_date: today
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+old:
+  title: Old
+  plot: Same old plot.
+  genre: Old Test
+  release_date: yesterday
+  created_at: <%= 2.weeks.ago %>

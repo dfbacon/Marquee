@@ -4,8 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
+one:
+  username: TestUser1
+  body: Test review one.
+  rating: 1
+  movie: valid
 #
-two: {}
-# column: value
+two:
+    username: TestUser2
+    body: Test review two.
+    rating: 2
+    movie: valid
