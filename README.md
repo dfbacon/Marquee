@@ -51,7 +51,7 @@ To Do
  * Add ability to view all comments for a specific review.
  * Add ability to sort reviews and comments.
  * Add ability to search movies by more parameters than just title.
- * Opyimize for mobile device viewing.
+ * Optimize for mobile device viewing.
  * Hide sort buttons while searching for movies.
  * Expand test suite for functionality with devise login.
 
