@@ -106,7 +106,7 @@ h3, h4 {
 }
 
 .blank_reviews {
-  margin-left: 600px;
+  margin-left: 400px;
   padding-top: 300px;
 }
 
@@ -148,17 +148,21 @@ p {
 
 .reviews {
   width: 30%;
-  min-height: 750px;
-  max-height: 1300px;
+  min-height: 500px;
+  max-height: 980px;
   float: right;
   padding: 0 10px;
   position: relative;
-  overflow: scroll;
+  overflow: hidden;
   font-family: 'Raleway', sans-serif;
   color: #333;
   font-weight: 600;
   font-size: 12px;
   border-left: 1px solid #72f9b4;
+}
+
+.view_btns {
+  margin-bottom: -20px;
 }
 
 .review h4 {
