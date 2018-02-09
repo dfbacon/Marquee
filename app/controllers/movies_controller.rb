@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   def index
     # Check if user is signed in
@@ -22,7 +23,8 @@ class MoviesController < ApplicationController
 
       # If user not searching, display all movies in database; sorted A->Z
       else
-        Movie.all.order('title ASC')
+        # Sort all movies depending on user selection
+        Movie.order(sort_column + ' ' + sort_direction)
       end
 
     # Discover all reviews to display; sorted by most recently updated
@@ -67,4 +69,13 @@ class MoviesController < ApplicationController
     def movie_params
       params.permit(:title, :release_date , :plot, :genre, :image)
     end
+
+    def sort_column
+      Movie.column_names.include?(params[:sort]) ? params[:sort] : 'title'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
 end

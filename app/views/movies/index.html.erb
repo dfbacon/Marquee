@@ -1,4 +1,9 @@
 <div class="movies">
+  <div class='sort_btns'>
+      <h4 class='sort_btn'><%= sortable "name" %></h4>
+      <h4 class='sort_btn'><%= sortable "genre" %></h4>
+      <h4 class='sort_btn'><%= sortable "release_date", "Release Date" %></h4>
+  </div>
   <div class="movie">
     <% if @tmdb %>
       <h2>Select the movie you're looking for:</h2>
