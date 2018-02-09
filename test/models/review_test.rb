@@ -60,7 +60,8 @@ class ReviewTest < ActiveSupport::TestCase
   end
 
   #MARK: - Review/Comment association test set
-  # test '#comments' do
-  #   assert_equal 2, @review.comments.size
-  # end
+  test '#comments' do
+    assert_equal 1, @review_one.comments.size
+    assert_equal 1, @review_two.comments.size
+  end
 end
