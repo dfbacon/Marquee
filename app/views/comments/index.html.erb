@@ -1,0 +1,20 @@
+<h2>All Comments</h2>
+<div class='review_index'>
+  <% @comments.each do |comment| %>
+  <div class='review_left'>
+    <div class='user_info'>
+      <h4 class='movie_title'>
+        Comment on <%= comment.review.username %>'s review for: <u><%= comment.review.movie.title %></u><br>
+      </h4>
+      <h4><%= comment.username %></h4>
+      <h4><%= comment.updated_at %></h4>
+    </div>
+  </div>
+  <div class='review_right'>
+    <div class='user_review'>
+      <h3><%= comment.comment_body %></h3>
+      <br style="clear:both;">
+    </div>
+  </div>
+  <% end %>
+</div>

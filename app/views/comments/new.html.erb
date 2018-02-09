@@ -1,0 +1,21 @@
+<h2>New comment for <%= @review.username %>'s review of <%= @review.movie.title %></h2><br>
+<%= form_for @comment, url: review_comments_path do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@comment.errors.count, "error") %> prohibited this review from being saved:</h3>
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.text_area :comment_body, size: '100x25' %><br><br>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Post Comment', class: 'search_button'  %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', movie_path(@review.movie_id), id: 'back_button'%>

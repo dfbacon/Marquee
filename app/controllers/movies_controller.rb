@@ -1,6 +1,11 @@
 class MoviesController < ApplicationController
   helper_method :sort_column, :sort_direction
+  # Help with sorting from http://railscasts.com/episodes/228-sortable-table-columns
 
+  # MARK: - index action
+  # Assembles all movies in database for display.
+  # Queries TMDB via tmdb-api gem if new title searched for.
+  # Sorts by updated_at attribute in descending order.
   def index
     # Check if user is signed in
     if current_user.nil?
@@ -32,11 +37,17 @@ class MoviesController < ApplicationController
     end
   end
 
+  # MARK: - show action
+  # Discovers a specific Movie object in database by id.
+  # Assembles all reviews for specified movie by updated_at attribute, in
+  #   descending order.
   def show
     @movie = Movie.find(params[:id])
-    @reviews = @movie.reviews
+    @reviews = @movie.reviews.order('updated_at DESC')
   end
 
+  # MARK: - new action
+  # Searches TMDB via the tmdb-api gem to collect pertinent movie data.
   def new
     # Call TMDB to retrieve movie data
     url = Tmdb::Movie.detail(params[:id])
@@ -57,6 +68,7 @@ class MoviesController < ApplicationController
     end
 
     # If it doesn't already exist, create new instance of Movie model in the db
+    # Used in place of create action
     @movie = Movie.find_or_create_by(title: url.title) do |m|
       m.release_date = url.release_date
       m.plot = url.overview
@@ -66,16 +78,21 @@ class MoviesController < ApplicationController
   end
 
   private
+    # MARK: - movie_params action
+    # Declares parmitted parameters for Movie object creation
     def movie_params
       params.permit(:title, :release_date , :plot, :genre, :image)
     end
 
+    # MARK:- sort_column action
+    # Define the parameter to sort by
     def sort_column
       Movie.column_names.include?(params[:sort]) ? params[:sort] : 'title'
-  end
+    end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
-
+    # MARK: - sort_direction action
+    # Define the direction (ascending/descending) to sort by
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
 end

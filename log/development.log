@@ -35600,3 +35600,154 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 137ms (Views: 119.0ms | ActiveRecord: 7.6ms)
 
 
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (25.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (254.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Marquee_development"[0m
+  [1m[35m (248.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Marquee_test"[0m
+  [1m[35m (1232.7ms)[0m  [1m[35mCREATE DATABASE "Marquee_development" ENCODING = 'unicode'[0m
+  [1m[35m (1003.9ms)[0m  [1m[35mCREATE DATABASE "Marquee_test" ENCODING = 'unicode'[0m
+  [1m[35m (45.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5613834592972082400)[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20180122165009)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (33.6ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "image" character varying, "release_date" character varying, "plot" text, "genre" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180122165009"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReviews (20180122165017)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "username" character varying, "body" text, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "movie_id" bigint)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_movie_id" ON "reviews"  ("movie_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180122165017"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20180122170208)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "username" character varying, "comment_body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "review_id" bigint)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_review_id" ON "comments"  ("review_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180122170208"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20180123173644)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (28.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180123173644"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-02-09 03:40:01.109619"], ["updated_at", "2018-02-09 03:40:01.109619"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5613834592972082400)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (3.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Rear Window"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"], ["release_date", "1960"], ["plot", "A wheelchair-bound photographer spies on his neighbours from his apartment window and becomes convinced one of them has committed murder."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.881520"], ["updated_at", "2018-02-09 03:40:11.881520"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Trouble with Harry"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNjlkYmE2YzYtYzIzMC00ODFhLTljNjYtZjA4YWY2ZGM5NTYwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1955"], ["plot", "The trouble with Harry is that he's dead, and everyone seems to have a different idea of what needs to be done with his body..."], ["genre", "Comedy"], ["created_at", "2018-02-09 03:40:11.891343"], ["updated_at", "2018-02-09 03:40:11.891343"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Rope"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMmFiM2VmNjQtOTYwZi00YjUxLWJjYWItNTE3NGRlNTBkMmIxXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1948"], ["plot", "Two young men strangle their \"inferior\" classmate, hide his body in their apartment, and invite his friends and family to a dinner party as a means to challenge the \"perfection\" of their crime."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.894739"], ["updated_at", "2018-02-09 03:40:11.894739"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "North by Northwest"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BZDA3NDExMTUtMDlhOC00MmQ5LWExZGUtYmI1NGVlZWI4OWNiXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1959"], ["plot", "A hapless New York advertising executive is mistaken for a government agent by a group of foreign spies, and is pursued across the country while he looks for a way to survive."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.897656"], ["updated_at", "2018-02-09 03:40:11.897656"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Shadow of a Doubt"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BYzUyOGE2Y2EtYzI2My00MDcxLWFmNzYtYjMzN2NiMmMzMzAzL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1943"], ["plot", "A young woman discovers her visiting uncle may not be the man he seems to be."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.900203"], ["updated_at", "2018-02-09 03:40:11.900203"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Birds"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMTAxNDA1ODc5MDleQTJeQWpwZ15BbWU4MDg2MDA4OTEx._V1_SX300.jpg"], ["release_date", "1963"], ["plot", "A wealthy San Francisco socialite pursues a potential boyfriend to a small Northern California town that slowly takes a turn for the bizarre when birds of all kinds suddenly begin to attack people."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.902956"], ["updated_at", "2018-02-09 03:40:11.902956"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Man Who Knew Too Much"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNjQ2OWFhMjItYmFmNC00OGQzLWE1ZTMtZGQwZDM3YWUzMDgxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SX300.jpg"], ["release_date", "1956"], ["plot", "A family vacationing in Morocco accidentally stumble on to an assassination plot and the conspirators are determined to prevent them from interfering."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.905797"], ["updated_at", "2018-02-09 03:40:11.905797"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Saboteur"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BMWNlZDIyZWItMDJkZS00OGZhLTg0YzYtOWVhM2ExZTY3NDk3L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1942"], ["plot", "Aircraft factory worker Barry Kane goes on the run across the United States when he is wrongly accused of starting a fire that killed his best friend."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.908837"], ["updated_at", "2018-02-09 03:40:11.908837"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Jamaica Inn"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BNTE3MDkwMjYzNl5BMl5BanBnXkFtZTgwMDU2NjA4MzE@._V1_SX300.jpg"], ["release_date", "1939"], ["plot", "In Cornwall in 1819, a young woman discovers that she's living near a gang of criminals who arrange shipwrecks for profit."], ["genre", "Thriller"], ["created_at", "2018-02-09 03:40:11.911580"], ["updated_at", "2018-02-09 03:40:11.911580"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_date", "plot", "genre", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Psycho"], ["image", "https://images-na.ssl-images-amazon.com/images/M/MV5BOWQ0MjRmZmUtY2Q2Yi00ODcxLWE4NGMtMTNjMDY1YmUzMjVkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"], ["release_date", "1960"], ["plot", "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother."], ["genre", "Horror"], ["created_at", "2018-02-09 03:40:11.915024"], ["updated_at", "2018-02-09 03:40:11.915024"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Create (5.3ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for Rear Window."], ["rating", 5], ["created_at", "2018-02-09 03:40:11.982958"], ["updated_at", "2018-02-09 03:40:11.982958"], ["movie_id", 1]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for The Trouble with Harry."], ["rating", 5], ["created_at", "2018-02-09 03:40:11.998380"], ["updated_at", "2018-02-09 03:40:11.998380"], ["movie_id", 2]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for Rope."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.009012"], ["updated_at", "2018-02-09 03:40:12.009012"], ["movie_id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for North by Northwest."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.013506"], ["updated_at", "2018-02-09 03:40:12.013506"], ["movie_id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mReview Create (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for Shadow of a Doubt."], ["rating", 4], ["created_at", "2018-02-09 03:40:12.019583"], ["updated_at", "2018-02-09 03:40:12.019583"], ["movie_id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for The Birds."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.025276"], ["updated_at", "2018-02-09 03:40:12.025276"], ["movie_id", 6]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Create (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for The Man Who Knew Too Much."], ["rating", 4], ["created_at", "2018-02-09 03:40:12.031185"], ["updated_at", "2018-02-09 03:40:12.031185"], ["movie_id", 7]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for Saboteur."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.037795"], ["updated_at", "2018-02-09 03:40:12.037795"], ["movie_id", 8]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for Jamaica Inn."], ["rating", 3], ["created_at", "2018-02-09 03:40:12.043392"], ["updated_at", "2018-02-09 03:40:12.043392"], ["movie_id", 9]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Review for Psycho."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.047708"], ["updated_at", "2018-02-09 03:40:12.047708"], ["movie_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Drawing from the relatively invisible literary talents of Daphne DuMaurier and Evan Hunter, Alfred Hitchcock has fashioned a major work of cinematic art, and 'cinematic' is the operative term here, not 'literary' or 'sociological.'"], ["rating", 5], ["created_at", "2018-02-09 03:40:12.052185"], ["updated_at", "2018-02-09 03:40:12.052185"], ["movie_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Few films depict so eerily yet so meticulously the metaphysical and historical sense of a world out of joint."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.056139"], ["updated_at", "2018-02-09 03:40:12.056139"], ["movie_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Hitch's much misappreciated follow-up to Psycho is arguably the greatest of all disaster films -- a triumph of special effects, as well as the fountainhead of what has become known as gross-out horror."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.061137"], ["updated_at", "2018-02-09 03:40:12.061137"], ["movie_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "The true genius of the film, based on a 1952 short story by Daphne du Maurier, is the way Hitchcock makes the malevolent birds seem like manifestations of his characters' mental unease."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.065149"], ["updated_at", "2018-02-09 03:40:12.065149"], ["movie_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "The picture pursues these false clues with excessive long-windedness and occasional fatuity. It is a tribute to Hitchcock's mastery of his craft that, even so, he makes overpoweringly real the menace of the birds."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.069745"], ["updated_at", "2018-02-09 03:40:12.069745"], ["movie_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "In the thick of an impeccable narrative that pays deep attention to all those involved, the great filmmaker manages to reach far inside the psychological chasm and find a rich inspiration."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.074158"], ["updated_at", "2018-02-09 03:40:12.074158"], ["movie_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "Though it lacks the psychological depth of Hitchcock's greatest works, it's characterised by a nightmarish simplicity."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.078245"], ["updated_at", "2018-02-09 03:40:12.078245"], ["movie_id", 6]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "This Hitchcock classic somehow strayed from favour for a while, yet in the realm of popular mythology it is now rivalled only by Vertigo or Psycho."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.084423"], ["updated_at", "2018-02-09 03:40:12.084423"], ["movie_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Create (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("username", "body", "rating", "created_at", "updated_at", "movie_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Testing"], ["body", "The Birds represents better than any other Hitchcock film the extreme polarities of his universe: vicious unpredictability and moral and emotional disorder on the one hand, and rigorous stylistic control and formal organization, on the other."], ["rating", 5], ["created_at", "2018-02-09 03:40:12.090224"], ["updated_at", "2018-02-09 03:40:12.090224"], ["movie_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
