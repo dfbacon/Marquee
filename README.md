@@ -39,9 +39,11 @@ To install: `bundle install`
 
 To the run server: `rails server`
 
+For testing: `rails test` and/or `rails test:system`
+
 To Do
 -----
- * Add testing suite
+
  * Deploy on Heroku
 
 Author
