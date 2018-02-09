@@ -5,6 +5,7 @@
       <h4 class='sort_btn'><%= sortable "release_date", "Release Date" %></h4>
   </div>
   <div class="movie">
+    <!-- If movie title entered in search bar, display results -->
     <% if @tmdb %>
       <h2>Select the movie you're looking for:</h2>
       <br><br><br>
@@ -14,6 +15,7 @@
         <br><br><br><br><br>
       <% end %>
       <br><br>
+    <!-- Otherwise display all movies -->
     <% else %>
       <% @movies.each do |movie| %>
       <div class="left">
@@ -47,5 +49,6 @@
       <p class='updated'><%= review.updated_at %></p>
     <% end %>
   </div>
-  <%= link_to "View All", reviews_path, id: 'review_btn' %>
+  <%= link_to "View All Reviews", reviews_path, id: 'review_btn' %>
+  <%= link_to "View All Comments", comments_path, id: 'review_btn' %>
 </div>

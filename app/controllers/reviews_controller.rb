@@ -1,17 +1,23 @@
 class ReviewsController < ApplicationController
+  # MARK: - index action
+  # Assembles all reviews in database for display.
+  # Sorts by updated_at attribute in descending order
   def index
     @reviews = Review.all.order('updated_at DESC')
   end
 
-  def show; end
-
+  # MARK: - new action
+  # Discovers specific movie by movie_id.
+  # Creates new instance of Review object
   def new
     @movie = Movie.find(params[:movie_id])
     @review = Review.new
   end
 
-  def edit; end
-
+  # MARK: - create action
+  # Discovers specific movie by movie_id.
+  # Constructs new Review object from data collected in
+  #   app/views/reviews/new.html.erb
   def create
     @movie = Movie.find(params[:movie_id])
     @review = Review.new(review_params)
@@ -20,7 +26,6 @@ class ReviewsController < ApplicationController
     @review.body = params[:review][:body]
     @review.rating = params[:review][:rating]
 
-
     if @review.save
       redirect_to root_path(@movie)
     else
@@ -28,15 +33,11 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def update
-    @review.update(review_params)
-  end
-
-  def destroy
-    @review.destroy
-    redirect_to root_path
-  end
-
+  # MARK: - Unimplemented actions
+  def show; end
+  def edit; end
+  def update; end
+  def destroy; end
 
   private
     def set_review
@@ -47,6 +48,8 @@ class ReviewsController < ApplicationController
       @movie = Movie.find(params[:movie_id])
     end
 
+    # MARK: - review_params action
+    # Declares parmitted parameters for Review object creation
     def review_params
       params.require(:review).permit(:review, :body, :username, :rating, :movie_id)
     end
