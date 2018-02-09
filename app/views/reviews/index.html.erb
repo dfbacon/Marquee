@@ -1,8 +1,9 @@
+<h2>All Reviews</h2>
 <div class='review_index'>
   <% @reviews.each do |review| %>
   <div class='review_left'>
     <div class='user_info'>
-      <h4 class='movie_title'>Review for: <%= review.movie.title %></h4>
+      <h4 class='movie_title'>Review for: <u><%= review.movie.title %></u></h4>
       <h4><%= review.username %></h4>
       <h4><%= review.updated_at %></h4>
       <h4>Rating: <%= review.rating %> out of 5</h4>

@@ -24,6 +24,9 @@
           <p class='username'><%= review.username %></p>
           <p class='user_rating'><%= review.rating %> out of 5 </p>
           <p class='updated', id="upd_at"><%= review.updated_at %></p>
+          <div class='add_comment'>
+            <p><%= link_to 'Comment', new_review_comment_path(review_id: review.id), id: 'review_btn' %><p>
+          </div>
         </div>
       </div>
     <% end %>

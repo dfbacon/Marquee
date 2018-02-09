@@ -17,10 +17,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.username = current_user.email
     @comment.review_id = @review.id
-    @comment.body = params[:comment][:comment_body]
+    @comment.comment_body = params[:comment][:comment_body]
 
     if @comment.save
-      redirect_to review_path(@review)
+      redirect_to movie_path(@review.movie_id)
     else
       render 'new'
     end
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
       @review = Review.find([:review_id])
     end
 
-    def review_params
+    def comment_params
       params.require(:comment).permit(:comment, :comment_body, :username, :review_id)
     end
 end
