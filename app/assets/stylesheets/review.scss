@@ -15,7 +15,7 @@
 .review_left {
   position: absolute;
   width: 30%;
-  height: 150px;
+  height: 175px;
   border-bottom: 1px solid #72f9b4;
 }
 
@@ -61,4 +61,8 @@
 
 #back_button:hover {
   color: #72f9b4;
+}
+
+span {
+  float: right;
 }
