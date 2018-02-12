@@ -26,6 +26,8 @@ Usage
 -----
 Marquee is deployed on a Heroku server and is live [HERE](https://floating-headland-30274.herokuapp.com/)
 
+New movies can be added to Marquee by searching for the movie title in the search bar.
+
 This project requires an API key from [The Movie Database](https://www.google.com.ph/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiCtZOXnfrSAhXDNpQKHZShCg0QFggaMAA&url=https%3A%2F%2Fwww.themoviedb.org%2Fen&usg=AFQjCNFc2kOBuTnm_SAprWVGDgKKH4nJsA). Get your API key [here](https://www.themoviedb.org/account).
 
 Create a `.env` file in the project's root directory and specify your key as below
